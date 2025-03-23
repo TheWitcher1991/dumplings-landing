@@ -30,6 +30,10 @@
         --font-size-banner-h2: 40px;
     }
 
+    .header-card {
+        border-radius: 20px;
+    }
+
     .container {
         max-width: 100%;
         width: 100%;
