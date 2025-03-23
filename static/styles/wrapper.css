@@ -34,7 +34,7 @@
     gap: 8px;
     font-weight: 500;
     height: 38px;
-    font-size: 17px;
+    font-size: var(--font-size-action-button);
     border: 0;
     border-radius: 99px;
     padding: 0 16px;
@@ -99,7 +99,7 @@
 
 .menu a {
     transition: var(--transition-linear);
-    font-size: 22px;
+    font-size: var(--font-size-menu);
     font-weight: 600;
     color: var(--color-accent);
 }
@@ -118,14 +118,14 @@
 
 .header-article h1 {
     text-wrap: balance;
-    font-size: 60px;
+    font-size: var(--font-size-header-h1);
     line-height: 1.2;
     margin: 0;
 }
 
 .header-article p {
     margin: 8px 0 0 0;
-    font-size: 26px;
+    font-size: var(--font-size-header-p);
 }
 
 .header-cards {
@@ -160,12 +160,12 @@
 }
 
 .header-card-text span {
-    font-size: 44px;
+    font-size: var(--font-size-card-text-span);
     line-height: 1.2;
 }
 
 .header-card-text p {
-    font-size: 24px;
+    font-size: var(--font-size-card-text-p);
     line-height: 1.2;
 }
 
@@ -206,16 +206,16 @@
 }
 
 .section-title h2 {
-    font-size: 40px;
+    font-size: var(--font-size-section-title-h2);
     margin: 0;
 }
 
 .section-title span {
-    font-size: 60px;
+    font-size: var(--font-size-section-title-span);
 }
 
 .section-title div {
-    font-size: 22px;
+    font-size: var(--font-size-section-title-div);
 }
 
 .about-cards {
@@ -244,7 +244,6 @@
     background: var(--color-accent);
     padding: 60px;
     color: var(--color-white);
-    min-height: 271px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -257,12 +256,13 @@
 }
 
 .about-card div {
-    font-size: 40px;
+    font-size: var(--font-size-about-card-div);
     font-weight: 600;
+    line-height: 1.2;
 }
 
 .about-card p {
-    font-size: 30px;
+    font-size: var(--font-size-about-card-p);
     margin: 20px 0 0 0;
     line-height: 1.2;
 }
@@ -294,7 +294,7 @@
 }
 
 .fire-card p {
-    font-size: 22px;
+    font-size: var(--font-size-fire-card-p);
     line-height: 1.2;
     text-wrap: balance;
     margin: 0 0 30px auto;
@@ -307,9 +307,11 @@
 }
 
 .fire-card div {
+    position: relative;
+    z-index: 10;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: var(--font-size-fire-card-div);
     margin-bottom: 40px;
 }
 
@@ -355,7 +357,7 @@
 
 .footer-fasie p {
     margin: 0;
-    font-size: 24px;
+    font-size: var(--font-size-footer-fasie-p);
     line-height: 1.2;
 }
 
@@ -371,7 +373,7 @@
 
 .footer-contact-wrapper {
     margin-top: 35px;
-    display: grid;
+    display: block;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 70px;
@@ -384,7 +386,7 @@
 }
 
 .footer-contact-list i {
-    font-size: 20px;
+    font-size: var(--font-size-footer-contact-list-icon);
     line-height: 0;
 }
 
@@ -395,7 +397,7 @@
     font-weight: 600;
     color: var(--color-black-tiny);
     gap: 10px;
-    font-size: 18px;
+    font-size: var(--font-size-footer-contact-list);
     cursor: pointer;
 }
 
@@ -413,13 +415,14 @@
 }
 
 .slide-text div {
-    font-size: 52px;
+    font-size: var(--font-size-slide-text-div);
     font-weight: 600;
+    line-height: 1.2;
 }
 
 .slide-text p {
     margin: 27px 0 0 0;
-    font-size: 28px;
+    font-size: var(--font-size-slide-text-p);
     text-wrap: balance;
     line-height: 1.2;
 }
@@ -435,5 +438,55 @@
 
 .banner h2 {
     margin: 0;
-    font-size: 60px;
+        font-size: var(--font-size-banner-h2);
+}
+
+.mobile-section {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    transition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-property: background-color, box-shadow;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: hsla(0, 0%, 100%, .8);
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.mobile-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.mobile-menu {
+    display: none;
+    padding: 16px 0;
+}
+
+.mobile-menu li a {
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: all .2s linear;
+    height: 42px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.mobile-nav {
+    height: 60px;
+    padding: 0 10px;
+}
+
+.mobile-button {
+    font-size: 29px;
 }

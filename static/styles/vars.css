@@ -22,3 +22,25 @@
 :root {
     --width-container: 1640px;
 }
+
+:root {
+    --font-size-action-button: 17px;
+    --font-size-menu: 22px;
+    --font-size-header-h1: 60px;
+    --font-size-header-p: 26px;
+    --font-size-card-text-span: 44px;
+    --font-size-card-text-p: 24px;
+    --font-size-section-title-h2: 40px;
+    --font-size-section-title-span: 60px;
+    --font-size-section-title-div: 22px;
+    --font-size-about-card-div: 40px;
+    --font-size-about-card-p: 30px;
+    --font-size-fire-card-p: 22px;
+    --font-size-fire-card-div: 32px;
+    --font-size-footer-fasie-p: 24px;
+    --font-size-footer-contact-list: 18px;
+    --font-size-footer-contact-list-icon: 20px;
+    --font-size-slide-text-div: 52px;
+    --font-size-slide-text-p: 28px;
+    --font-size-banner-h2: 60px;
+}

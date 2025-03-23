@@ -108,6 +108,37 @@
 
 <!-- CONTENT -->
 <main class="wrapper">
+    <!-- MOBILE HEADER -->
+    <section class="mobile-section">
+        <nav class="flex-between mobile-nav">
+            <div class="mobile-logo">
+                <img src="./public/logo.png" alt="Логотип" width="40" height="40" />
+                Заморозкино
+            </div>
+            <div class="mobile-button">
+                <i class="mdi mobile-action mdi-menu"></i>
+            </div>
+        </nav>
+        <menu class="mobile-menu" itemscope itemtype='http://schema.org/ItemList'>
+            <li itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList'>
+                <a itemprop='url' href="#about">О нас</a>
+                <meta itemprop='name' content='О нас'/>
+            </li>
+            <li itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList'>
+                <a itemprop='url' href="#product">Продукция</a>
+                <meta itemprop='name' content='Продукция'/>
+            </li>
+            <li itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList'>
+                <a itemprop='url' href="#fire">Преимущества</a>
+                <meta itemprop='name' content='Преимущества'/>
+            </li>
+            <li itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList'>
+                <a itemprop='url' href="#contact">Контакты</a>
+                <meta itemprop='name' content='Контакты'/>
+            </li>
+        </menu>
+    </section>
+
     <!-- HEADER -->
     <header id="header">
         <section class="section-header">
