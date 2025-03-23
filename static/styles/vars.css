@@ -1,0 +1,24 @@
+:root {
+    --font-family: 'ALS Schlange sans';
+    --font: normal 16px 'ALS Schlange sans';
+}
+
+:root {
+    --transition-linear: all 0.2s linear;
+}
+
+:root {
+    --color-accent: #A28065;
+    --color-accent-hover: #85664e;
+    --color-white: #FFFFFF;
+    --color-block: #F8F4F1;
+    --color-container-base: #F5F5F5;
+    --color-container-second: #FFF7F0;
+    --color-black-text: #222222;
+    --color-black-tiny: #1C1A1A;
+    --color-gray: #7E7E7E;
+}
+
+:root {
+    --width-container: 1640px;
+}
