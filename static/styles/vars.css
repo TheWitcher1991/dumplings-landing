@@ -17,6 +17,7 @@
     --color-black-text: #222222;
     --color-black-tiny: #1C1A1A;
     --color-gray: #7E7E7E;
+    --color-modal: #22222280;
 }
 
 :root {
@@ -43,4 +44,5 @@
     --font-size-slide-text-div: 52px;
     --font-size-slide-text-p: 28px;
     --font-size-banner-h2: 60px;
+    --font-size-shop: 25px;
 }

@@ -100,19 +100,80 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="./static/font/stylesheet.css"/>
+    <link rel="stylesheet" href="./static/styles/keyframes.css"/>
     <link rel="stylesheet" href="./static/styles/vars.css"/>
     <link rel="stylesheet" href="./static/styles/normalize.css"/>
     <link rel="stylesheet" href="static/styles/wrapper.css">
     <link rel="stylesheet" href="./static/styles/media.css"/>
 </head>
 
+<!-- SHOP MODAL -->
+<div class="modal" role="presentation">
+    <div class="modal-container">
+        <div class="modal-content" role="dialog">
+            <header class="flex-between modal-header">
+                <div>
+                    <h3>Оформление заказа</h3>
+                    <p>Оставьте заявку, и мы свяжемся с вами!</p>
+                </div>
+                <div class="modal-action close-modal">
+                    <i class="mdi mdi-close"></i>
+                </div>
+            </header>
+            <form class="modal-form modal-article">
+                <label class="label">
+                    <span class="label-title">Продукт <i>*</i></span>
+                    <select class="input" required name="cart" id="cart">
+                        <option value="1" selected>Пельмени без глютена</option>
+                        <option value="2">Вареники с картофелем</option>
+                        <option value="3">Ньокки  с картофелем</option>
+                    </select>
+                    <span class="label-error e-cart">Введите телефон</span>
+                </label>
+
+                <label class="label">
+                    <span class="label-title">Контактный телефон <i>*</i></span>
+                    <input type="tel" class="input" placeholder="+7" required name="phone" id="phone" />
+                    <span class="label-error e-phone">Введите телефон</span>
+                </label>
+
+                <label class="label">
+                    <span class="label-title">Электронная почта <i>*</i></span>
+                    <input type="email" class="input" placeholder="ivanov@contact.me" required name="email" id="email" />
+                    <span class="label-error e-email">Введите телефон</span>
+                </label>
+
+                <label class="label">
+                    <span class="label-title">Имя <i>*</i></span>
+                    <input type="text" class="input" placeholder="Иван Иванов" name="name" id="name" />
+                    <span class="label-error e-name">Введите телефон</span>
+                </label>
+
+                <label class="label">
+                    <span class="label-title">Комментарий</span>
+                    <textarea class="input" placeholder="Напишите, если у вас есть особые пожелания или вопросы" name="comment" id="comment"></textarea>
+                </label>
+            </form>
+            <footer class="flex-center modal-buttons">
+                <button class="action-button action-button-accent-border close-modal cancel-form" type="button">Отменить</button>
+                <button class="action-button action-button-accent send-request" type="button">Оставить заявку</button>
+            </footer>
+        </div>
+    </div>
+</div>
+
 <!-- CONTENT -->
 <main class="wrapper">
+    <!-- SHOP BUTTON -->
+    <div class="shop-button flex-center">
+        <i class="mdi mdi-cart-outline"></i>
+    </div>
+
     <!-- MOBILE HEADER -->
     <section class="mobile-section">
         <nav class="flex-between mobile-nav">
             <div class="mobile-logo">
-                <img src="./public/logo.png" alt="Логотип" width="40" height="40" />
+                <img src="./public/logo.png" alt="Логотип" width="40" height="40"/>
                 Заморозкино
             </div>
             <div class="mobile-button">
@@ -223,8 +284,9 @@
                         </article>
                         <article class="flex-between">
                             <img src="./public/fasie.png" alt=""/>
-                            <a href="https://fasie.ru/" target="_blank" class="action-button action-button-border">Подробнее <i
-                                    class="mdi mdi-arrow-top-right"></i></a>
+                            <a href="https://fasie.ru/" target="_blank" class="action-button action-button-border">Подробнее
+                                <i
+                                        class="mdi mdi-arrow-top-right"></i></a>
                         </article>
                     </div>
                     <div class="about-card wow fadeIn">
@@ -326,7 +388,7 @@
                             <div class="footer-contact-list">
                                 <a href="mailto:zamorozkino.stv@gmail.com"><i class="mdi mdi-email-outline"></i>
                                     zamorozkino.stv@gmail.com</a>
-                                <a href="tel:+79999999999"><i class="mdi mdi-phone-outline"></i> +7 (999) 999-99-99</a>
+                                <a href="tel:+79054172114"><i class="mdi mdi-phone-outline"></i> +7 (905) 417-21-14</a>
                                 <div><i class="mdi mdi-map-marker-outline"></i> г. Ставрополь, ул Пирогова, д. 15/2
                                 </div>
                             </div>
@@ -340,7 +402,8 @@
                         развитию малых форм предприятий в научно-технической сфере в рамках программы "Студенческий
                         стартап" федерального проекта "Платформа университетского технологического
                         предпринимательства</p>
-                    <a href="https://fasie.ru/" target="_blank" class="action-button action-button-border">Подробнее <i class="mdi mdi-arrow-top-right"></i>
+                    <a href="https://fasie.ru/" target="_blank" class="action-button action-button-border">Подробнее <i
+                            class="mdi mdi-arrow-top-right"></i>
                     </a>
                 </div>
             </section>
