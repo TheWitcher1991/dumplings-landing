@@ -1,5 +1,16 @@
 $(document).ready(function () {
 
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+        loop: false,
+        margin: 20,
+        nav: true,
+        navText: [
+            '<span class="owl-action mdi mdi-arrow-left wow fadeIn"></span>',
+            '<span class="owl-action mdi mdi-arrow-right wow fadeIn"></span>'
+        ],
+    })
+
     $("a[href*='#']").on("click", function (e) {
         e.preventDefault()
 

@@ -98,6 +98,10 @@
           integrity='sha512-nRzny9w0V2Y1/APe+iEhKAwGAc+K8QYCw4vJek3zXhdn92HtKt226zHs9id8eUq+uYJKaH2gPyuLcaG/dE5c7A=='
           crossorigin='anonymous' referrerpolicy='no-referrer'/>
 
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'
+          integrity='sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=='
+          crossorigin='anonymous' referrerpolicy='no-referrer' />
+
     <!-- STYLES -->
     <link rel="stylesheet" href="./static/font/stylesheet.css"/>
     <link rel="stylesheet" href="./static/styles/keyframes.css"/>
@@ -126,36 +130,39 @@
                     <select class="input" required name="cart" id="cart">
                         <option value="1" selected>Пельмени без глютена</option>
                         <option value="2">Вареники с картофелем</option>
-                        <option value="3">Ньокки  с картофелем</option>
+                        <option value="3">Ньокки с картофелем</option>
                     </select>
                     <span class="label-error e-cart">Введите телефон</span>
                 </label>
 
                 <label class="label">
                     <span class="label-title">Контактный телефон <i>*</i></span>
-                    <input type="tel" class="input" placeholder="+7" required name="phone" id="phone" />
+                    <input type="tel" class="input" placeholder="+7" required name="phone" id="phone"/>
                     <span class="label-error e-phone">Введите телефон</span>
                 </label>
 
                 <label class="label">
                     <span class="label-title">Электронная почта <i>*</i></span>
-                    <input type="email" class="input" placeholder="ivanov@contact.me" required name="email" id="email" />
+                    <input type="email" class="input" placeholder="ivanov@contact.me" required name="email" id="email"/>
                     <span class="label-error e-email">Введите телефон</span>
                 </label>
 
                 <label class="label">
                     <span class="label-title">Имя <i>*</i></span>
-                    <input type="text" class="input" placeholder="Иван Иванов" name="name" id="name" />
+                    <input type="text" class="input" placeholder="Иван Иванов" name="name" id="name"/>
                     <span class="label-error e-name">Введите телефон</span>
                 </label>
 
                 <label class="label">
                     <span class="label-title">Комментарий</span>
-                    <textarea class="input" placeholder="Напишите, если у вас есть особые пожелания или вопросы" name="comment" id="comment"></textarea>
+                    <textarea class="input" placeholder="Напишите, если у вас есть особые пожелания или вопросы"
+                              name="comment" id="comment"></textarea>
                 </label>
             </form>
             <footer class="flex-center modal-buttons">
-                <button class="action-button action-button-accent-border close-modal cancel-form" type="button">Отменить</button>
+                <button class="action-button action-button-accent-border close-modal cancel-form" type="button">
+                    Отменить
+                </button>
                 <button class="action-button action-button-accent send-request" type="button">Оставить заявку</button>
             </footer>
         </div>
@@ -310,16 +317,43 @@
                     <span>/</span>
                     <div>Что мы предлагаем?</div>
                 </div>
-                <div class="slide flex-between">
-                    <div class="slide-text wow fadeIn">
-                        <div>Пельмени без глютена</div>
-                        <p>Наши пельмени — это возможность для людей с целиакией и аллергией на пшеницу наслаждаться
-                            любимым блюдом без вреда для здоровья. К особенностям следует отнести: эластичное тесто,
-                            которое не уступает по текстуре традиционным пельменям, натуральные ингридиенты, а также
-                            отсутствие глютена, лактозы и аллергенов.</p>
+                <div class="owl-carousel owl-theme">
+                    <div class="slide flex-between">
+                        <div class="slide-text wow fadeIn">
+                            <div>1. Пельмени без глютена</div>
+                            <p>Наши пельмени — это возможность для людей с целиакией и аллергией на пшеницу наслаждаться
+                                любимым блюдом без вреда для здоровья. К особенностям следует отнести: эластичное тесто,
+                                которое не уступает по текстуре традиционным пельменям, натуральные ингридиенты, а также
+                                отсутствие глютена, лактозы и аллергенов.</p>
+                        </div>
+                        <div class="slide-image wow fadeIn">
+                            <img src="./public/slide_1.png" alt=""/>
+                        </div>
                     </div>
-                    <div class="slide-image wow fadeIn">
-                        <img src="./public/slide_1.png" alt=""/>
+                    <div class="slide flex-between">
+                        <div class="slide-text wow fadeIn">
+                            <div>2. Вареники с картофелем</div>
+                            <p>Нежное тесто из кукурузного крахмала и рисовой муки сочетается с классической начинкой
+                                из картофельного пюре с луком. Мы исключили
+                                из состава яйца и молочные продукты, чтобы вареники были безопасны для людей
+                                с непереносимостью лактозы. Это блюдо идеально подойдёт для тех, кто ищет лёгкий и
+                                сытный вариант ужина или обеда.</p>
+                        </div>
+                        <div class="slide-image wow fadeIn">
+                            <img src="./public/slide_2.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="slide flex-between">
+                        <div class="slide-text wow fadeIn">
+                            <div>3. Ньокки  с картофелем</div>
+                            <p>Мягкие и нежные клёцки из картофельного пюре с добавлением кукурузной и рисовой муки
+                                станут отличной альтернативой традиционным макаронным изделиям. Ньокки легко готовятся и
+                                прекрасно сочетаются с различными соусами, что делает их универсальным блюдом для всей
+                                семьи.</p>
+                        </div>
+                        <div class="slide-image wow fadeIn">
+                            <img src="./public/slide_3.png" alt=""/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -411,13 +445,14 @@
     </footer>
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'
+        integrity='sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=='
+        crossorigin='anonymous' referrerpolicy='no-referrer'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'
         integrity='sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=='
         crossorigin='anonymous' referrerpolicy='no-referrer'></script>
+
 <script>new WOW().init()</script>
 
 <script src="./static/script/index.js"></script>

@@ -169,6 +169,10 @@
         max-width: 500px;
     }
 
+    .owl-carousel .owl-item img {
+        width: 100%;
+    }
+
     #header {
         height: fit-content;
     }
@@ -210,9 +214,51 @@
         --font-size-footer-fasie-p: 18px;
         --font-size-footer-contact-list: 16px;
         --font-size-footer-contact-list-icon: 18px;
-        --font-size-slide-text-div: 30px;
+        --font-size-slide-text-div: 25px;
         --font-size-slide-text-p: 18px;
         --font-size-banner-h2: 30px;
+    }
+
+    .modal {
+        z-index: 10000000000000;
+    }
+
+    .modal-container {
+        padding: 0;
+    }
+
+    .modal-content {
+        bottom: 0;
+        position: absolute;
+        max-width: 100%;
+        min-width: 100%;
+        width: 100%;
+        border-radius: 25px 25px 0 0;
+        padding: 20px 16px;
+    }
+
+    .input {
+        min-height: 40px;
+        height: 38px;
+    }
+
+    .modal-buttons button {
+        height: 38px;
+    }
+
+    .owl-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .owl-nav button {
+        width: 100%;
+    }
+
+    .owl-action {
+        width: 100%;
     }
 
     .section-title {
