@@ -85,10 +85,8 @@ $(document).ready(function () {
             err += 1;
         })
 
-        if (err !== 0)
-            return false
 
-        let bth = ('.send-request')
+        let bth = $('.send-request')
 
         bth.html(`
             <svg class="spinner-bth" viewBox="0 0 50 50">
@@ -103,15 +101,21 @@ $(document).ready(function () {
             type: 'POST',
             cache: false,
             dataType: 'json',
-            success: function (response) {
+            success: function ({ responseJSON }) {
+                if (responseJSON.status !== 200) {
+                    alert('Ошибка отправки заявки')
+                } else {
+                    alert('Заявка отправлена')
+                }
+
                 bth.html('Оставить заявку')
-                bth.attr('disabled', 'false')
+                bth.removeAttr('disabled')
             },
-            error: function (response) {
-                console.log(response)
+            error: function ({ responseJSON }) {
+                console.log(responseJSON)
                 alert('Ошибка отправки заявки')
                 bth.html('Оставить заявку')
-                bth.attr('disabled', 'false')
+                bth.removeAttr('disabled')
             },
         })
     })

@@ -1,8 +1,10 @@
 <?php
 
-require_once('phpmailer/PHPMailerAutoload.php');
-$mail = new PHPMailer;
-$mail->CharSet = 'utf-8';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require_once 'vendor/autoload.php';
 
 $cart = $_POST['cart'];
 $name = $_POST['name'];
@@ -10,38 +12,65 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $comment = $_POST['comment'];
 
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+$err = [];
+if (empty($cart)) $err['cart'] = 'Выберите продукт';
+if (empty($name)) $err['name'] = 'Введите имя';
+if (empty($phone)) $err['phone'] = 'Введите телефон';
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) $err['email'] = 'Введите корректный email';
 
-$mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.mail.ru';  																							// Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'andreevj2k@mail.ru'; // Ваш логин от почты с которой будут отправляться письма
-$mail->Password = '123TestovayaPochta_1'; // Ваш пароль от почты с которой будут отправляться письма
-$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
-
-$mail->setFrom('andreevj2k@mail.ru'); // от кого будет уходить письмо?
-$mail->addAddress('fckdrilleralmer@gmail.com');     // Кому будет уходить письмо
-//$mail->addAddress('ellen@example.com');               // Name is optional
-//$mail->addReplyTo('info@example.com', 'Information');
-//$mail->addCC('cc@example.com');
-//$mail->addBCC('bcc@example.com');
-//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                                  // Set email format to HTML
-
-$mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
-$mail->AltBody = '';
-
-if(!$mail->send()) {
-    echo json_encode(array(
-        'status' => 200,
-    ));
-} else {
-    echo json_encode(array(
-         'status' => 404,
-    ));
+if (!empty($err)) {
+    http_response_code(400);
+    echo json_encode([
+        'error' => $err,
+        'code' => 'validate_error',
+        'status' => 400
+    ]);
+    exit();
 }
+
+$mail = new PHPMailer(true);
+
+try {
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail->isSMTP();
+    $mail->Host = 'mail.talentspot.ru';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'noreply@talentspot.ru';
+    $mail->Password = 'xT4cM3eF1y';
+    $mail->Port = 25;
+
+    $mail->setFrom($email, $nane);
+    $mail->addAddress("zamorozkino.stv@gmail.com");
+    $mail->addReplyTo($email);
+    $mail->CharSet = "utf-8";
+    $mail->isHTML(true);
+
+    $mail->Subject = 'Новый заказ';
+    $mail->Body = '
+        <h2>Новый заказ с zamorozkino.ru</h2>
+        <p><strong>Имя:</strong> ' . htmlspecialchars($name) . '</p>
+        <p><strong>Телефон:</strong> ' . htmlspecialchars($phone) . '</p>
+        <p><strong>Почта:</strong> ' . htmlspecialchars($email) . '</p>
+        <p><strong>Комментарий:</strong> ' . htmlspecialchars($comment) . '</p>
+    ';
+    $mail->AltBody = '';
+
+    $mail->send();
+
+    $response = [
+        'status' => 200,
+        'message' => 'Message has been sent'
+    ];
+}  catch (Exception $e) {
+    http_response_code(500);
+    $response = [
+        'status' => 500,
+        'error' => 'Message could not be sent.',
+        'debug' => $mail->ErrorInfo
+    ];
+}
+
+header('Content-Type: application/json');
+echo json_encode($response);
 exit();
 ?>
