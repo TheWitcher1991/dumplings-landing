@@ -31,15 +31,16 @@ if (!empty($err)) {
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
     $mail->Host = 'mail.talentspot.ru';
     $mail->SMTPAuth = true;
     $mail->Username = 'noreply@talentspot.ru';
     $mail->Password = 'xT4cM3eF1y';
-    $mail->Port = 25;
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
 
-    $mail->setFrom($email, $nane);
+    $mail->setFrom($email, $name);
     $mail->addAddress("zamorozkino.stv@gmail.com");
     $mail->addReplyTo($email);
     $mail->CharSet = "utf-8";

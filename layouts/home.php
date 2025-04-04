@@ -144,13 +144,13 @@
                 <label class="label">
                     <span class="label-title">Электронная почта <i>*</i></span>
                     <input type="email" class="input" placeholder="ivanov@contact.me" required name="email" id="email"/>
-                    <span class="label-error e-email">Введите телефон</span>
+                    <span class="label-error e-email">Введите корректный email</span>
                 </label>
 
                 <label class="label">
                     <span class="label-title">Имя <i>*</i></span>
                     <input type="text" class="input" placeholder="Иван Иванов" name="name" id="name"/>
-                    <span class="label-error e-name">Введите телефон</span>
+                    <span class="label-error e-name">Введите имя</span>
                 </label>
 
                 <label class="label">

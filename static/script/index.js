@@ -63,6 +63,15 @@ $(document).ready(function () {
         $('.mobile-menu').fadeOut(0)
     })
 
+    const reset = () => {
+        $('.label-error').fadeOut(50)
+        $('input').removeClass('error')
+        $('select').removeClass('error')
+        $('input').val('')
+        $('.modal').fadeToggle(200)
+        $('html').removeClass('no-scroll')
+    }
+
     $(document).on('click', '.send-request', function (e)  {
         e.preventDefault()
 
@@ -80,11 +89,12 @@ $(document).ready(function () {
             if ($.trim(el.value) === '') {
                 $(`#${i}`).addClass('error');
                 $(`.e-${i}`).fadeIn(50)
+                err += 1;
             }
-
-            err += 1;
         })
 
+        if (err > 0)
+            return
 
         let bth = $('.send-request')
 
@@ -101,18 +111,28 @@ $(document).ready(function () {
             type: 'POST',
             cache: false,
             dataType: 'json',
-            success: function ({ responseJSON }) {
-                if (responseJSON.status !== 200) {
+            success: (response) => {
+                if (response.status !== 200) {
                     alert('Ошибка отправки заявки')
+
+                    for (let i in response?.error) {
+                        $(`#${i}`).addClass('error');
+                        $(`.e-${i}`).fadeIn(50)
+                    }
                 } else {
-                    alert('Заявка отправлена')
+                    reset()
+                    alert('Заявка отправлена, с вами скоро свяжутся')
                 }
 
                 bth.html('Оставить заявку')
                 bth.removeAttr('disabled')
             },
-            error: function ({ responseJSON }) {
-                console.log(responseJSON)
+            error: ({ responseJSON }) => {
+                for (let i in responseJSON?.error) {
+                    $(`#${i}`).addClass('error');
+                    $(`.e-${i}`).fadeIn(50)
+                }
+
                 alert('Ошибка отправки заявки')
                 bth.html('Оставить заявку')
                 bth.removeAttr('disabled')
